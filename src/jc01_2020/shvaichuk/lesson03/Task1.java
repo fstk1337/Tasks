@@ -13,10 +13,10 @@ import java.util.Scanner;
 
 public class Task1 {
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		long input = scanner.nextLong();
-		long temp;
-		long maxDigit = 0;
+        Scanner scanner = new Scanner(System.in);
+        long input = scanner.nextLong();
+        long temp;
+        long maxDigit = 0;
         while (input >= 10) {
             temp = input % 10;
             input = (input - temp) / 10;
@@ -26,5 +26,5 @@ public class Task1 {
         if (input > maxDigit)
             maxDigit = input;
         System.out.println(maxDigit);
-	}
+    }
 }
