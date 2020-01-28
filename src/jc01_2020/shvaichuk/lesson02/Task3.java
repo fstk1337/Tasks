@@ -19,5 +19,15 @@ public class Task3 {
         Scanner scanner = new Scanner(System.in);
         long first = scanner.nextLong();
         long second = scanner.nextLong();
+        if (second == 0)
+            System.out.println("Недопустимая операция");
+        else {
+            long divideResult = first / second;
+            long reminder = first % second;
+            if (reminder == 0)
+                System.out.println("Делится. Частное = " + divideResult);
+            else
+                System.out.println("Не делится. Частное = " + divideResult + ". Остаток = " + reminder);
+        }
     }
 }
