@@ -19,5 +19,10 @@ public class Task6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int code = scanner.nextInt();
+        char symbol = (char) code;
+        if (symbol >= 'A' && symbol <= 'Z' || symbol >='a' && symbol <= 'z')
+            System.out.println("Да");
+        else
+            System.out.println("Нет");
     }
 }

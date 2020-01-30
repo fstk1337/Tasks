@@ -19,5 +19,11 @@ public class Task4 {
         int first = scanner.nextInt();
         int second = scanner.nextInt();
         int third = scanner.nextInt();
+        int avgValue = first;
+        if (first <= second && third >= second || third <= second && first >= second)
+            avgValue = second;
+        else if (first <= third && second >= third || second <= third && first >= third)
+            avgValue = third;
+        System.out.println(avgValue);
     }
 }

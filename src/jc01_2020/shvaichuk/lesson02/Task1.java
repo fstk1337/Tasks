@@ -19,5 +19,9 @@ public class Task1 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int numeric = scanner.nextInt();
+		if (numeric == 1 || numeric == 2 || numeric == 3)
+			System.out.println("Число " + numeric);
+		else
+			System.out.println("Другое число");
 	}
 }
