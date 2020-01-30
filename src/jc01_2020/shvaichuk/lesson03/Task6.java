@@ -16,7 +16,8 @@ public class Task6 {
 		Scanner scanner = new Scanner(System.in);
 		int horizontal = scanner.nextInt();
 		int vertical = scanner.nextInt();
-//        System.out.print("");
-//        System.out.println("");
+
+//      System.out.print("");
+//      System.out.println("");
 	}
 }
