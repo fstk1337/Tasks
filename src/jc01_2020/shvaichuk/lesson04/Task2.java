@@ -24,5 +24,13 @@ public class Task2 {
 		for (int i = 0; i < array.length; i++) {
 			array[i] = scanner.nextInt();
 		}
+		double avg = 0;
+		for (int element : array) {
+		    avg += (double) element / array.length;
+        }
+        for (int element : array) {
+            if (element > avg)
+                System.out.println(element);
+        }
     }
 }

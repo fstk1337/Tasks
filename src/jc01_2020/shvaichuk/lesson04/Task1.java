@@ -19,5 +19,11 @@ public class Task1 {
 		for (int i = 0; i < array.length; i++) {
 			array[i] = scanner.nextInt();
 		}
+		int summ = 0;
+		for (int element : array) {
+		    if (element > 0 && element % 2 == 0)
+		        summ += element;
+        }
+        System.out.println(summ);
     }
 }
