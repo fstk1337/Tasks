@@ -17,14 +17,14 @@ public class Task1 {
         long input = scanner.nextLong();
         long temp;
         long maxDigit = 0;
-        while (input >= 10) {
+        while (input >= 10 || input <= -10) {
             temp = input % 10;
-            input = (input - temp) / 10;
+            input = (Math.abs(input) - temp) / 10;
             if (temp >= maxDigit)
                 maxDigit = temp;
         }
-        if (input > maxDigit)
-            maxDigit = input;
+        if (input >= maxDigit || input <= -maxDigit)
+            maxDigit = Math.abs(input);
         System.out.println(maxDigit);
     }
 }

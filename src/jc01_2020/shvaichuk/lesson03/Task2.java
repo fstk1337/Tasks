@@ -17,5 +17,24 @@ public class Task2 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int secret = (int) (Math.random() * 100 + 1);
+		int attemptCount = 0;
+		System.out.println("Угадай число от 0 до 100:");
+		while (attemptCount < 10) {
+			int playerNumber = scanner.nextInt();
+			if (playerNumber == secret) {
+				System.out.println("Число " + secret + " угадано!");
+				break;
+			} else {
+				if (playerNumber > secret)
+					System.out.println("Загаданное число меньше введенного.");
+				else
+					System.out.println("Загаданное число больше введенного.");
+				attemptCount++;
+				if (attemptCount < 10)
+					System.out.println("Попробуй еще раз!");
+				else
+					System.out.println("Ты проиграл!");
+			}
+		}
 	}
 }
