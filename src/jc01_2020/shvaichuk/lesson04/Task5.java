@@ -23,5 +23,16 @@ public class Task5 {
 				array[j][i] = scanner.nextInt();
 			}
 		}
+		int maxColumnSum = 0;
+		int maxColumnIndex = 0;
+		for (int i = 0; i < array.length; i++) {
+			int thisColumnSum = 0;
+			for (int j = 0; j < array[0].length; j++) {
+				thisColumnSum += array[i][j];
+			}
+			maxColumnSum = thisColumnSum > maxColumnSum ? thisColumnSum : maxColumnSum;
+			maxColumnIndex = maxColumnSum > thisColumnSum ? maxColumnIndex : i;
+		}
+		System.out.println(maxColumnIndex);
 	}
 }
