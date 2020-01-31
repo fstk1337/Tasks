@@ -20,5 +20,25 @@ public class Task4 {
 		for (int i = 0; i < array.length; i++) {
 			array[i] = scanner.nextInt();
 		}
+		int min = array[0];
+		int max = array[0];
+		int minIndex = 0;
+		int maxIndex = 0;
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] > max) {
+				max = array[i];
+				maxIndex = i;
+			}
+			if (array[i] < min) {
+				min = array[i];
+				minIndex = i;
+			}
+		}
+		int direction = minIndex < maxIndex ? 1 : -1;
+		int result = 0;
+		for (int i = minIndex + direction; i * direction < maxIndex * direction; i = i + direction) {
+			result += array[i];
+		}
+		System.out.println(result);
 	}
 }
