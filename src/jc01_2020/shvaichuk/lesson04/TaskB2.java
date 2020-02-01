@@ -23,5 +23,17 @@ public class TaskB2 {
 				array[j][i] = scanner.nextInt();
 			}
 		}
+		int minElement = array[0][0];
+		for (int[] column : array) {
+			for (int element : column) {
+				minElement = element < minElement ? element : minElement;
+			}
+		}
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array[0].length; j++) {
+				if (array[i][j] == minElement)
+					System.out.println("строка: " + j + ", столбец: " + i);
+			}
+		}
 	}
 }

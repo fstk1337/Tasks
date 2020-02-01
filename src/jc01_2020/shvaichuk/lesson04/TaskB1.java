@@ -32,5 +32,20 @@ public class TaskB1 {
 		}
 		int a = scanner.nextInt();
 		int b = scanner.nextInt();
+		int freeIndex = 0;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] >= a && array[i] <= b) {
+				array[i] = 0;
+				if (array[freeIndex] != 0) freeIndex = i;
+			} else {
+				int temp = array[i];
+				array[i] = 0;
+				array[freeIndex] = temp;
+				freeIndex++;
+			}
+		}
+		for (int element : array) {
+			System.out.println(element);
+		}
     }
 }
