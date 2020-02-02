@@ -19,14 +19,16 @@ public class Task5 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int year = scanner.nextInt();
-		String result = "Обычный";
 		if (year % 100 == 0) {
 			if (year % 400 == 0) {
-				result = "Високосный";
+				System.out.println("Високосный");
+			} else {
+				System.out.println("Обычный");
 			}
 		} else if (year % 4 == 0) {
-			result = "Високосный";
+			System.out.println("Високосный");
+		} else {
+			System.out.println("Обычный");
 		}
-		System.out.println(result);
 	}
 }
