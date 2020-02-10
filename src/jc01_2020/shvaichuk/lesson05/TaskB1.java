@@ -17,15 +17,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TaskB1 {
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		String str = scanner.nextLine();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
 
-		String regexp = "^[a-zA-Z0-9]+[\\w\\.-]+[\\w&&[^_]]{1}@{1}[a-zA-Z]+\\.{1}[a-zA-Z]+";
+        String regexp = "^[a-zA-Z0-9]+[\\w\\.-]+[\\w&&[^_]]{1}[.]?@{1}[a-zA-Z]+\\.{1}[a-zA-Z]+";
 
-		Pattern pattern = Pattern.compile(regexp);
-		Matcher matcher = pattern.matcher(str);
+        Pattern pattern = Pattern.compile(regexp);
+        Matcher matcher = pattern.matcher(str);
 
-		System.out.println(matcher.find());
-	}
+        System.out.println(matcher.find());
+    }
 }
