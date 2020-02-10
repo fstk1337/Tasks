@@ -11,14 +11,21 @@ package jc01_2020.shvaichuk.lesson05;
  */
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TaskB2 {
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		String str = scanner.nextLine();
-		boolean result = false;
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        boolean result = false;
 
+        String regexp = "[A-Z]{1}[a-z]+[-]{1}[A-Z]{1}[a-z]+";
 
-		System.out.println(result);
-	}
+        Pattern pattern = Pattern.compile(regexp);
+        Matcher matcher = pattern.matcher(str);
+
+        result = matcher.find();
+        System.out.println(result);
+    }
 }
