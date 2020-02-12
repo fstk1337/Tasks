@@ -9,11 +9,11 @@ public class Bishop extends Figure {
 	public boolean moveTo(char toVertical, int toHorizontal) {
 		int x = getVerticalAsInt(getVertical());
 		int y = getHorizontal();
-		int b1 = x + y; //свободный член для отрицательного наклона
-		int b2 = x - y; //свободный для положительного наклона
-		if (getVerticalAsInt(toVertical) == toHorizontal + b2 && toHorizontal > x && toHorizontal <= 8)
+		int b1 = y + x; //свободный член для отрицательного наклона
+		int b2 = y - x; //свободный для положительного наклона
+		if (toHorizontal == getVerticalAsInt(toVertical) + b2 && getVerticalAsInt(toVertical) > x && getVerticalAsInt(toVertical) <= 8)
 			return true;
-		if (getVerticalAsInt(toVertical) == -toHorizontal + b1 && toHorizontal >= 1 && toHorizontal < x)
+		if (toHorizontal == -getVerticalAsInt(toVertical) + b1 && getVerticalAsInt(toVertical) >= 1 && getVerticalAsInt(toVertical) < x)
 			return true;
 		return false;
 	}

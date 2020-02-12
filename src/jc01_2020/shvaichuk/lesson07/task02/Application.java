@@ -19,7 +19,7 @@ public class Application {
 		System.out.println(bishop.moveTo('g', 5));
 		System.out.println(bishop.moveTo('d', 3));
 		System.out.println(bishop.moveTo('b', 2));
-		
+		System.out.println(bishop.moveTo('c', 1));
 		
 	}
 }
