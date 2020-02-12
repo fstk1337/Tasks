@@ -15,5 +15,11 @@ package jc01_2020.shvaichuk.lesson07.task02;
 public class Application {
 
 	public static void main(String[] args) {
+		Figure bishop = new Bishop('c', 1);
+		System.out.println(bishop.moveTo('g', 5));
+		System.out.println(bishop.moveTo('d', 3));
+		System.out.println(bishop.moveTo('b', 2));
+		
+		
 	}
 }
