@@ -19,5 +19,9 @@ public abstract class Figure {
 	public int getHorizontal() {
 		return horizontal;
 	}
+	
+	public static int getVerticalAsInt(char vertical) {
+		return (int)vertical - 96;
+	}
 
 }
