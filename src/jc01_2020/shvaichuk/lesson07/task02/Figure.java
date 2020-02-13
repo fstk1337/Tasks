@@ -5,7 +5,7 @@ public abstract class Figure {
 	private char vertical;
 	private int horizontal;
 
-	public Figure(final char vertical, final int horizontal) {
+	public Figure(char vertical, int horizontal) {
 		this.vertical = vertical;
 		this.horizontal = horizontal;
 	}
@@ -19,5 +19,8 @@ public abstract class Figure {
 	public int getHorizontal() {
 		return horizontal;
 	}
-
+	
+	public static int getIntFromVertical(char vertical) {
+		return (int)vertical - 96;
+	}
 }
