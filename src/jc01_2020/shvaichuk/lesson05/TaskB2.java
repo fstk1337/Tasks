@@ -11,7 +11,6 @@ package jc01_2020.shvaichuk.lesson05;
  */
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TaskB2 {
@@ -20,12 +19,8 @@ public class TaskB2 {
         String str = scanner.nextLine();
         boolean result = false;
 
-        String regexp = "[A-Z]{1}[a-z]+[-]{1}[A-Z]{1}[a-z]+";
-
+        String regexp = "(^[A-Z]{1}[a-z]+[-][A-Z]{1}[a-z]+$|^[А-Я]{1}[а-я]+[-][А-Я]{1}[а-я]+$)";
         Pattern pattern = Pattern.compile(regexp);
-        Matcher matcher = pattern.matcher(str);
-
-        result = matcher.find();
-        System.out.println(result);
+        System.out.println(pattern.matcher(str).find());
     }
 }
