@@ -16,16 +16,11 @@ public class Task1 {
         Scanner scanner = new Scanner(System.in);
         long input = scanner.nextLong();
         input = input < 0 ? -input : input;
-        long temp;
-        long maxDigit = 0;
+        long maxDigit = input % 10;
         while (input >= 10) {
-            temp = input % 10;
-            input = (input - temp) / 10;
-            if (temp >= maxDigit)
-                maxDigit = temp;
+            input /= 10;
+            maxDigit = input % 10 > maxDigit ? input % 10 : maxDigit;
         }
-        if (input >= maxDigit)
-            maxDigit = input;
         System.out.println(maxDigit);
     }
 }
