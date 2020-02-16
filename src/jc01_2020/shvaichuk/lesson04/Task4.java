@@ -21,10 +21,8 @@ public class Task4 {
 		int maxIndex = 0;
 		for (int i = 0; i < array.length; i++) {
 			array[i] = scanner.nextInt();
-			int min = array[minIndex];
-			int max = array[maxIndex];
-			minIndex = array[i] < min ? i : minIndex;
-			maxIndex = array[i] > max ? i : maxIndex;
+			minIndex = array[i] < array[minIndex] ? i : minIndex;
+			maxIndex = array[i] > array[maxIndex] ? i : maxIndex;
 		}
 		int direction = minIndex < maxIndex ? 1 : -1;
 		int result = 0;
