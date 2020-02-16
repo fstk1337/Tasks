@@ -23,4 +23,15 @@ public abstract class Figure {
 	public static int getIntFromVertical(char vertical) {
 		return (int)vertical - 96;
 	}
+	
+	public void printTest(String[] fields) {
+		System.out.println("Testing a " + this.getClass().getSimpleName() + " at " + this.getVertical() + this.getHorizontal() + ":");
+		for (String field : fields) {
+			char toVertical = field.charAt(0);
+			int toHorizontal = (int) field.charAt(1) - 48;
+			System.out.println("can move to " + toVertical + toHorizontal + ": " + this.moveTo(toVertical, toHorizontal));
+		}
+		System.out.println();
+	}
+	
 }
