@@ -15,24 +15,17 @@ package jc01_2020.shvaichuk.lesson04;
 import java.util.Scanner;
 
 public class Task5 {
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		int[][] array = new int[4][3];
-		for (int i = 0; i < array[0].length; i++) {
-			for (int j = 0; j < array.length; j++) {
-				array[j][i] = scanner.nextInt();
-			}
-		}
-		int maxColumnSum = 0;
-		int maxColumnIndex = 0;
-		for (int i = 0; i < array.length; i++) {
-			int thisColumnSum = 0;
-			for (int j = 0; j < array[0].length; j++) {
-				thisColumnSum += array[i][j];
-			}
-			maxColumnSum = thisColumnSum > maxColumnSum ? thisColumnSum : maxColumnSum;
-			maxColumnIndex = maxColumnSum > thisColumnSum ? maxColumnIndex : i;
-		}
-		System.out.println(maxColumnIndex);
-	}
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[][] array = new int[4][3];
+        int maxColIndex = 0;
+        for (int i = 0; i < array[0].length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                array[j][i] = scanner.nextInt();
+                if (i > 0) array[j][i] += array[j][i - 1];
+                maxColIndex = array[j][i] > array[maxColIndex][i] ? j : maxColIndex;
+            }
+        }
+        System.out.println(maxColIndex);
+    }
 }

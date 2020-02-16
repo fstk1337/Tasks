@@ -17,22 +17,14 @@ public class Task4 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int[] array = new int[7];
-		for (int i = 0; i < array.length; i++) {
-			array[i] = scanner.nextInt();
-		}
-		int min = array[0];
-		int max = array[0];
 		int minIndex = 0;
 		int maxIndex = 0;
-		for (int i = 1; i < array.length; i++) {
-			if (array[i] > max) {
-				max = array[i];
-				maxIndex = i;
-			}
-			if (array[i] < min) {
-				min = array[i];
-				minIndex = i;
-			}
+		for (int i = 0; i < array.length; i++) {
+			array[i] = scanner.nextInt();
+			int min = array[minIndex];
+			int max = array[maxIndex];
+			minIndex = array[i] < min ? i : minIndex;
+			maxIndex = array[i] > max ? i : maxIndex;
 		}
 		int direction = minIndex < maxIndex ? 1 : -1;
 		int result = 0;

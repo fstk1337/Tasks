@@ -16,14 +16,13 @@ public class Task1 {
     public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
     	int[] array = new int[7];
+		int summ = 0;
 		for (int i = 0; i < array.length; i++) {
 			array[i] = scanner.nextInt();
+			if (array[i] > 0 && array[i] % 2 == 0) {
+				summ += array[i];
+			}
 		}
-		int summ = 0;
-		for (int element : array) {
-		    if (element > 0 && element % 2 == 0)
-		        summ += element;
-        }
         System.out.println(summ);
     }
 }

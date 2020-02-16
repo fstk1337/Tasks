@@ -21,16 +21,15 @@ public class Task2 {
     public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int[] array = new int[7];
+		double avg = 0;
 		for (int i = 0; i < array.length; i++) {
 			array[i] = scanner.nextInt();
+			avg += (double) array[i] / array.length;
 		}
-		double avg = 0;
-		for (int element : array) {
-		    avg += (double) element / array.length;
-        }
         for (int element : array) {
-            if (element > avg)
-                System.out.println(element);
+            if (element > avg) {
+				System.out.println(element);
+			}
         }
     }
 }
