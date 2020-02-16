@@ -18,21 +18,21 @@ public class TaskB2 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int[][] array = new int[4][3];
+		int minElement = 0;
 		for (int i = 0; i < array[0].length; i++) {
 			for (int j = 0; j < array.length; j++) {
 				array[j][i] = scanner.nextInt();
+				if (i != 0 && j != 0) {
+					minElement = array[j][i] < minElement ? array[j][i] : minElement;
+				} else {
+					minElement = array[j][i];
+				}
 			}
 		}
-		int minElement = array[0][0];
-		for (int[] column : array) {
-			for (int element : column) {
-				minElement = element < minElement ? element : minElement;
-			}
-		}
-		for (int i = 0; i < array.length; i++) {
-			for (int j = 0; j < array[0].length; j++) {
-				if (array[i][j] == minElement)
-					System.out.println("строка: " + j + ", столбец: " + i);
+		for (int i = 0; i < array[0].length; i++) {
+			for (int j = 0; j < array.length; j++) {
+				if (array[j][i] == minElement)
+					System.out.println("строка: " + i + ", столбец: " + j);
 			}
 		}
 	}
