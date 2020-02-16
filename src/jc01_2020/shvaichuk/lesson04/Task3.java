@@ -22,7 +22,7 @@ public class Task3 {
 		for (int i = 0; i < array.length; i++) {
 			array[i] = scanner.nextInt();
 			array[i] = array[i] < 0 ? -array[i] : array[i];
-			if (i > 0 && array[i] < array[i - 1]) minIndex = i;
+			if (array[i] < array[minIndex]) minIndex = i;
 		}
 		System.out.println(minIndex);
 	}
