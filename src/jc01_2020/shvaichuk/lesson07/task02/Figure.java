@@ -34,4 +34,10 @@ public abstract class Figure {
 		System.out.println();
 	}
 	
+	public boolean inputIsInvalid(char toVertical, int toHorizontal) {
+		if (toVertical == getVertical() && toHorizontal == getHorizontal()) return true;
+		if (getIntFromVertical(toVertical) < 1 || getIntFromVertical(toVertical) > 8) return true;
+		if (toHorizontal < 1 || toHorizontal > 8) return true;
+		return false;
+	}
 }
