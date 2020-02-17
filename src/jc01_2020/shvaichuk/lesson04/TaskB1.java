@@ -25,27 +25,27 @@ import java.util.Scanner;
 
 public class TaskB1 {
     public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		int[] array = new int[7];
-		for (int i = 0; i < array.length; i++) {
-			array[i] = scanner.nextInt();
-		}
-		int a = scanner.nextInt();
-		int b = scanner.nextInt();
-		int freeIndex = 0;
-		for (int i = 0; i < array.length; i++) {
-			if (array[i] >= a && array[i] <= b) {
-				array[i] = 0;
-				if (array[freeIndex] != 0) freeIndex = i;
-			} else {
-				int temp = array[i];
-				array[i] = 0;
-				array[freeIndex] = temp;
-				freeIndex++;
-			}
-		}
-		for (int element : array) {
-			System.out.println(element);
-		}
+        Scanner scanner = new Scanner(System.in);
+        int[] array = new int[7];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = scanner.nextInt();
+        }
+        int start = scanner.nextInt();
+        int end = scanner.nextInt();
+        int freeIndex = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] >= start && array[i] <= end) {
+                array[i] = 0;
+                freeIndex = array[freeIndex] != 0 ? i : freeIndex;
+            } else {
+                int temp = array[i];
+                array[i] = 0;
+                array[freeIndex] = temp;
+                freeIndex++;
+            }
+        }
+        for (int element : array) {
+            System.out.println(element);
+        }
     }
 }

@@ -15,58 +15,28 @@ package jc01_2020.shvaichuk.lesson07.task02;
 public class Application {
 
 	public static void main(String[] args) {
-		System.out.println("Testing a bishop");
-		
 		Figure bishop = new Bishop('e', 7);
-		System.out.println(bishop.moveTo('e', 7));
-		System.out.println(bishop.moveTo('g', 5));
-		System.out.println(bishop.moveTo('b', 4));
-		System.out.println(bishop.moveTo('g', 9));
-		System.out.println(bishop.moveTo('t', 3));
-		
-		System.out.println("Testing a rook");
+		String[] bishopFields = {"e7", "g5", "b4", "g9", "t3"};
+		bishop.printTest(bishopFields);
 		
 		Figure rook = new Rook('f', 3);
-		System.out.println(rook.moveTo('f', 3));
-		System.out.println(rook.moveTo('c', 3));
-		System.out.println(rook.moveTo('f', 7));
-		System.out.println(rook.moveTo('g', 9));
-		System.out.println(rook.moveTo('t', 3));
-		
-		System.out.println("Testing a queen");
+		String[] rookFields = {"f3", "c3", "f7", "g9", "t3"};
+		rook.printTest(rookFields);
 		
 		Figure queen = new Queen('g', 2);
-		System.out.println(queen.moveTo('g', 2));
-		System.out.println(queen.moveTo('d', 5));
-		System.out.println(queen.moveTo('a', 2));
-		System.out.println(queen.moveTo('g', 9));
-		System.out.println(queen.moveTo('t', 3));
-		
-		System.out.println("Testing a king");
+		String[] queenFields = {"g2", "d5", "a2", "g9", "t3"};
+		queen.printTest(queenFields);
 		
 		Figure king = new King('f', 7);
-		System.out.println(king.moveTo('f', 7));
-		System.out.println(king.moveTo('f', 6));
-		System.out.println(king.moveTo('e', 8));
-		System.out.println(king.moveTo('g', 9));
-		System.out.println(king.moveTo('t', 3));
-		
-		System.out.println("Testing a knight");
+		String[] kingFields = {"f7", "f6", "e8", "g9", "t3"};
+		king.printTest(kingFields);
 		
 		Figure knight = new Knight('e', 6);
-		System.out.println(knight.moveTo('e', 6));
-		System.out.println(knight.moveTo('c', 7));
-		System.out.println(knight.moveTo('f', 4));
-		System.out.println(knight.moveTo('g', 9));
-		System.out.println(knight.moveTo('t', 3));
-		
-		System.out.println("Testing a pawn");
+		String[] knightFields = {"e6", "c7", "f4", "g9", "t3"};
+		knight.printTest(knightFields);
 		
 		Figure pawn = new Pawn('a', 2);
-		System.out.println(pawn.moveTo('a', 2));
-		System.out.println(pawn.moveTo('a', 3));
-		System.out.println(pawn.moveTo('a', 4));
-		System.out.println(pawn.moveTo('g', 9));
-		System.out.println(pawn.moveTo('t', 3));
+		String[] pawnFields = {"a2", "a3", "a4", "g9", "t3"};
+		pawn.printTest(pawnFields);
 	}
 }

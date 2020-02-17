@@ -16,20 +16,12 @@ public class Task3 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		long input = scanner.nextLong();
-		long signFix = input > 0 ? 1 : -1;
-		long temp = input * signFix;
+		long sign = input > 0 ? 1 : -1;
 		long result = 0;
-		int digitCounter = 1;
-		while (temp >= 10) {
-			temp = (temp - temp % 10) / 10;
-			digitCounter++;
+		while (input * sign >= 10) {
+			result = result * 10 + input % 10;
+			input /= 10;
 		}
-		temp = input * signFix;
-		for (int i = digitCounter; i > 0 ; i--) {
-			long digit = temp % 10;
-			temp = (temp - digit) / 10;
-			result += digit * Math.pow(10, i - 1);
-		}
-		System.out.println(result * signFix);
+		System.out.println(result * 10 + input);
 	}
 }

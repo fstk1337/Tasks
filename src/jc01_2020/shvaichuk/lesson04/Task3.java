@@ -18,15 +18,11 @@ public class Task3 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int[] array = new int[5];
-		array[0] = scanner.nextInt();
-		int sign = array[0] < 0 ? -1 : 1;
-		array[0] *= sign;
 		int minIndex = 0;
-		for (int i = 1; i < array.length; i++) {
+		for (int i = 0; i < array.length; i++) {
 			array[i] = scanner.nextInt();
-			sign = array[i] < 0 ? -1 : 1;
-			array[i] *= sign;
-			minIndex = array[i] < array[minIndex] ? i : minIndex;
+			array[i] = array[i] < 0 ? -array[i] : array[i];
+			if (array[i] < array[minIndex]) minIndex = i;
 		}
 		System.out.println(minIndex);
 	}
