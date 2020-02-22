@@ -6,6 +6,12 @@ public class Sphere extends Shape {
 	
 	public Sphere(double radius) {
 		this.radius = radius;
-		setVolume(4 * Math.PI * Math.pow(radius, 3) / 3);
+		calculateVolume();
+		printVolume();
 	}
+    
+    @Override
+    public void calculateVolume() {
+		setVolume(4 * Math.PI * Math.pow(radius, 3) / 3);
+    }
 }

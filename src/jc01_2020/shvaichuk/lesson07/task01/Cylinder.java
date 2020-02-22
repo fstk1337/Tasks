@@ -8,6 +8,12 @@ public class Cylinder extends Shape {
 	public Cylinder(double radius, double height) {
 		this.radius = radius;
 		this.height = height;
+		calculateVolume();
+		printVolume();
+	}
+	
+	@Override
+	public void calculateVolume() {
 		setVolume(Math.PI * Math.pow(radius, 2) * height);
 	}
 }
