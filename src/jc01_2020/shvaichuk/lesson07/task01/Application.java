@@ -19,19 +19,15 @@ public class Application {
 		Box box = new Box(10_000);
 		
 		Cylinder cylinder = new Cylinder(10, 20);
-		System.out.println(cylinder.getVolume());
-		System.out.println(box.add(cylinder));
+		box.add(cylinder);
 		
 		Parallelepiped ppd = new Parallelepiped(3, 4, 5);
-		System.out.println(ppd.getVolume());
-		System.out.println(box.add(ppd));
+		box.add(ppd);
 		
 		Pyramid pyramid = new Pyramid(20, 3);
-		System.out.println(pyramid.getVolume());
-		System.out.println(box.add(pyramid));
+		box.add(pyramid);
 		
 		Sphere sphere = new Sphere(10);
-		System.out.println(sphere.getVolume());
-		System.out.println(box.add(sphere));
+		box.add(sphere);
 	}
 }

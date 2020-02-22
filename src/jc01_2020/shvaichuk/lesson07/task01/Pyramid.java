@@ -8,6 +8,12 @@ public class Pyramid extends Shape {
 	public Pyramid(double side, double height) {
 		this.side = side;
 		this.height = height;
-		setVolume(side * height / 3);
+		calculateVolume();
+		printVolume();
 	}
+    
+    @Override
+    public void calculateVolume() {
+		setVolume(side * height / 3);
+    }
 }

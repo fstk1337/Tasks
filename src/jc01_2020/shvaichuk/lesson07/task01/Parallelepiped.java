@@ -10,6 +10,12 @@ public class Parallelepiped extends Shape {
 		this.length = length;
 		this.width = width;
 		this.height = height;
-		setVolume(length * width * height);
+		calculateVolume();
+		printVolume();
 	}
+    
+    @Override
+    public void calculateVolume() {
+		setVolume(length * width * height);
+    }
 }
