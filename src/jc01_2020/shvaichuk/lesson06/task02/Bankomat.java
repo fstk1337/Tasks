@@ -43,6 +43,10 @@ public class Bankomat {
         System.out.println("Created a bankomat with " + getTotalAmount() + " amount of cash");
     }
     
+    public void printCurrentAmount() {
+        System.out.println("Current amount is " + getTotalAmount());
+    }
+    
     public int getTotalAmount() {
         return 20 * twentyAmount + 50 * fiftyAmount + 100 * hundredAmount;
     }
@@ -56,38 +60,39 @@ public class Bankomat {
     
     public boolean withdrawCash(int amountToWithdraw) {
         System.out.println("Trying to withdraw " + amountToWithdraw + " from the bankomat...");
-        if (amountToWithdraw > getTotalAmount()) return false;
+        if (amountToWithdraw > getTotalAmount()) {
+            System.out.println("Withdrawing rejected!");
+            return false;
+        }
         int hundredCount = 0;
         while (amountToWithdraw >= 100 && getHundredAmount() > 0) {
-            if (getHundredAmount() > 0) {
-                addHundredAmount(-1);
-                hundredCount++;
-                amountToWithdraw -= 100;
-            }
+            addHundredAmount(-1);
+            hundredCount++;
+            amountToWithdraw -= 100;
         }
         
         int fiftyCount = 0;
         while (amountToWithdraw >= 50 && getFiftyAmount() > 0) {
-            if (getFiftyAmount() > 0) {
-                addFiftyAmount(-1);
-                fiftyCount++;
-                amountToWithdraw -= 50;
-            }
+            addFiftyAmount(-1);
+            fiftyCount++;
+            amountToWithdraw -= 50;
         }
         
         int twentyCount = 0;
         while (amountToWithdraw >= 20 && getTwentyAmount() > 0) {
-            if (getTwentyAmount() > 0) {
-                addTwentyAmount(-1);
-                twentyCount++;
-                amountToWithdraw -= 20;
-            }
+            addTwentyAmount(-1);
+            twentyCount++;
+            amountToWithdraw -= 20;
         }
         if (amountToWithdraw == 0) {
             if (hundredCount > 0) System.out.println("There was withdrawn " + hundredCount + " banknotes of 100");
             if (fiftyCount > 0) System.out.println("There was withdrawn " + fiftyCount + " banknotes of 50");
             if (twentyCount > 0) System.out.println("There was withdrawn " + twentyCount + " banknotes of 20");
+            System.out.println("Withdrawing successfull!");
             return true;
-        } else return false;
+        } else {
+            System.out.println("Withdrawing rejected!");
+            return false;
+        }
     }
 }
