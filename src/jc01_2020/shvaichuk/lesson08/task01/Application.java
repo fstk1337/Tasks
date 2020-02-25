@@ -9,12 +9,9 @@ package jc01_2020.shvaichuk.lesson08.task01;
 
 import java.util.Scanner;
 
-import static jc01_2020.shvaichuk.lesson08.task01.Letters.getLetterPosition;
-
 public class Application {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		String letter = scanner.next().toUpperCase();
-		System.out.println(getLetterPosition(letter));
+		String letter = scanner.next();
 	}
 }
