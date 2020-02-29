@@ -28,6 +28,11 @@ package jc01_2020.shvaichuk.lesson08.task03;
  *
  */
 
-
 public class Application {
+
+	public static void main(String[] args) {
+		Date date = new Date(1, 1, 2020);
+		System.out.println(date);
+		System.out.println(date.getDayOfWeek());
+	}
 }
