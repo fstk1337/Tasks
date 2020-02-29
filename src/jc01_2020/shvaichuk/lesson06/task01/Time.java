@@ -23,12 +23,11 @@ public class Time {
 	}
 	
 	public int compareTo(Time time) {
-		int result = 0;
 		if (this.getFullSeconds() > time.getFullSeconds())
 			return 1;
-		 else if (this.getFullSeconds() < time.getFullSeconds())
+		else if (this.getFullSeconds() < time.getFullSeconds())
 			return -1;
-		return result;
+		return 0;
 	}
 	
 	public void printTime() {
