@@ -31,8 +31,13 @@ package jc01_2020.shvaichuk.lesson08.task03;
 public class Application {
 
 	public static void main(String[] args) {
-		Date date = new Date(1, 1, 2020);
-		System.out.println(date);
-		System.out.println(date.getDayOfWeek());
+		Date date1 = new Date(1, 1, 1970);
+		Date date2 = new Date(1,3,2020);
+		Date date3 = new Date(29,2,2020);
+
+		System.out.println(date1);
+		System.out.println(date2);
+		System.out.println(date3);
+
 	}
 }

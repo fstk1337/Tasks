@@ -15,8 +15,26 @@ public enum Months {
 	DECEMBER(31);
 
 	private int daysQuantity;
+	private String shortName;
 
 	Months(int daysQuantity) {
 		this.daysQuantity = daysQuantity;
+		shortName = this.name().substring(0, 3);
+	}
+
+	public int getDaysQuantity() {
+		return daysQuantity;
+	}
+
+	public String getShortName() {
+		return shortName;
+	}
+
+	public int getMonthNumber() {
+		return this.ordinal() + 1;
+	}
+
+	public static Months getMonths(int month) {
+		return Months.values()[month - 1];
 	}
 }
