@@ -14,6 +14,6 @@ public class Pyramid extends Shape {
     
     @Override
     public void calculateVolume() {
-		setVolume(side * height / 3);
+		setVolume(Math.pow(side, 2) * height / 3);
     }
 }
