@@ -22,15 +22,7 @@ public class Task2 {
 		while (sb.indexOf(" ") != -1) {
 			sb.deleteCharAt(sb.indexOf(" "));
 		}
-		str = sb.toString().toLowerCase();
-		boolean isPalindrom = true;
-		int stop = str.length() / 2;
-		for (int i = 0; i < stop; i++) {
-			if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
-				isPalindrom = false;
-				break;
-			}
-		}
+		boolean isPalindrom = sb.toString().toLowerCase().equals(sb.reverse().toString().toLowerCase());
 		String output = isPalindrom ? "Да" : "Нет";
 		System.out.println(output);
 	}
