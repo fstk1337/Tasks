@@ -1,5 +1,7 @@
 package jc01_2020.shvaichuk.lesson06.task02;
 
+import java.util.Arrays;
+
 public class Bankomat {
     private int twentyAmount;
     private int fiftyAmount;
@@ -59,40 +61,73 @@ public class Bankomat {
     }
     
     public boolean withdrawCash(int amountToWithdraw) {
-        System.out.println("Trying to withdraw " + amountToWithdraw + " from the bankomat...");
-        if (amountToWithdraw > getTotalAmount()) {
-            System.out.println("Withdrawing rejected!");
-            return false;
-        }
-        int hundredCount = 0;
-        while (amountToWithdraw >= 100 && getHundredAmount() > 0) {
-            addHundredAmount(-1);
-            hundredCount++;
-            amountToWithdraw -= 100;
-        }
-        
-        int fiftyCount = 0;
-        while (amountToWithdraw >= 50 && getFiftyAmount() > 0) {
-            addFiftyAmount(-1);
-            fiftyCount++;
-            amountToWithdraw -= 50;
-        }
-        
-        int twentyCount = 0;
-        while (amountToWithdraw >= 20 && getTwentyAmount() > 0) {
-            addTwentyAmount(-1);
-            twentyCount++;
-            amountToWithdraw -= 20;
-        }
-        if (amountToWithdraw == 0) {
-            if (hundredCount > 0) System.out.println("There was withdrawn " + hundredCount + " banknotes of 100");
-            if (fiftyCount > 0) System.out.println("There was withdrawn " + fiftyCount + " banknotes of 50");
-            if (twentyCount > 0) System.out.println("There was withdrawn " + twentyCount + " banknotes of 20");
-            System.out.println("Withdrawing successfull!");
+        if (!canBeWithDrawn(amountToWithdraw)) return false;
+
+        int[] banknotesQuantity = getBanknotesQuantity(amountToWithdraw);
+
+        if (Arrays.compare(banknotesQuantity, new int[]{0, 0, 0}) != 0) {
+            withdraw(banknotesQuantity);
+            System.out.println("Withdrawing successful!");
             return true;
         } else {
             System.out.println("Withdrawing rejected!");
             return false;
+        }
+    }
+
+    public void withdraw(int[] banknotesQuantity) {
+        if (banknotesQuantity[0] != 0) {
+            addHundredAmount(-banknotesQuantity[0]);
+            System.out.println("There was withdrawn " + banknotesQuantity[0] + " banknotes of 100");
+        }
+        if (banknotesQuantity[1] != 0) {
+            addFiftyAmount(-banknotesQuantity[1]);
+            System.out.println("There was withdrawn " + banknotesQuantity[1] + " banknotes of 50");
+        }
+        if (banknotesQuantity[2] != 0) {
+            addTwentyAmount(-banknotesQuantity[2]);
+            System.out.println("There was withdrawn " + banknotesQuantity[2] + " banknotes of 20");
+        }
+    }
+
+    public boolean canBeWithDrawn(int amountToWithdraw) {
+        System.out.println("Trying to withdraw " + amountToWithdraw + " from the bankomat...");
+        if (amountToWithdraw > getTotalAmount()) {
+            System.out.println("Withdrawing rejected!");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int[] getBanknotesQuantity(int amountToWithdraw) {
+        int[] banknotesQuantity = new int[3];
+        int hundreds = getHundredAmount();
+        int fifties = getFiftyAmount();
+        int twenties = getTwentyAmount();
+
+        while (amountToWithdraw >= 100 && hundreds > 0) {
+            banknotesQuantity[0]++;
+            hundreds--;
+            amountToWithdraw -= 100;
+        }
+
+        while (amountToWithdraw >= 50 && fifties > 0) {
+            banknotesQuantity[1]++;
+            fifties--;
+            amountToWithdraw -= 50;
+        }
+
+        while (amountToWithdraw >= 20 && twenties > 0) {
+            banknotesQuantity[2]++;
+            twenties--;
+            amountToWithdraw -= 20;
+        }
+
+        if (amountToWithdraw == 0) {
+            return banknotesQuantity;
+        } else {
+            return new int[]{0, 0, 0};
         }
     }
 }

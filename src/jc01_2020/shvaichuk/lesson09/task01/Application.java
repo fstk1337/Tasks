@@ -18,8 +18,7 @@ public class Application {
         int longestStringIndex = 0;
 
 		for (int i = 0; i < 5; i++) {
-			String str = scanner.nextLine();
-            list.add(str);
+            list.add(scanner.nextLine());
 			if (list.get(i).length() > list.get(longestStringIndex).length()) {
 			    longestStringIndex = i;
             }
