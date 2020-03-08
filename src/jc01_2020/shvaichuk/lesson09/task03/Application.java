@@ -7,17 +7,23 @@ package jc01_2020.shvaichuk.lesson09.task03;
  *
  */
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		// Объявить список
+		List<String> list = new ArrayList<>();
 		for (int i = 0; i < 5; i++) {
-			String str = scanner.nextLine();
-			// Заполнить список
+			list.add(scanner.nextLine());
 		}
+		for (int i = 0; i < 5; i++) {
+			list.add(0, list.get(4));
+			list.remove(5);
+		}
+		System.out.println(Arrays.asList(list.toArray()));
 	}
-
 }
