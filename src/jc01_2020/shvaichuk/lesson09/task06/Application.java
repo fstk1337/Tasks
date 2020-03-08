@@ -10,13 +10,34 @@ package jc01_2020.shvaichuk.lesson09.task06;
  *
  */
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
 public class Application {
 
 	public static void main(String[] args) {
-		// Объявить список
+		List<Integer> arrayList = new ArrayList<>();
+		List<Integer> linkedList = new LinkedList<>();
 		for (int i = 0; i < 1_000_000; i++) {
-			// Заполнить список
+			arrayList.add(new Random().nextInt(100));
+			linkedList.add(new Random().nextInt(100));
 		}
+
+		long startTime = System.nanoTime();
+		for (int i = 0; i < 100_00; i++) {
+			arrayList.add(0, 0);
+		}
+		long endTime = System.nanoTime();
+		System.out.println("Duration for ArrayList: " + (endTime - startTime) + " nanosecs.");
+
+		startTime = System.nanoTime();
+		for (int i = 0; i < 100_00; i++) {
+			linkedList.add(0, 0);
+		}
+		endTime = System.nanoTime();
+		System.out.println("Duration for LinkedList: " + (endTime - startTime) + " nanosecs.");
 	}
 
 }
