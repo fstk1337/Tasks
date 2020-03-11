@@ -25,4 +25,5 @@ hs_err_pid*
 # IDEA
 .idea
 *.iml
+*.xml
 /out/production/Tasks/META-INF/Tasks.kotlin_module
