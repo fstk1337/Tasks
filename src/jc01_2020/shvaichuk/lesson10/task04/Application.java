@@ -7,16 +7,22 @@ package jc01_2020.shvaichuk.lesson10.task04;
  *
  */
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Application {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		Map<String, String> persons = new HashMap<>();
+
 		for (int i = 0; i < 10; i++) {
 			String surname = scanner.nextLine();
 			String firstName = scanner.nextLine();
+			persons.put(surname, firstName);
 		}
+		System.out.println(persons);
 	}
 
 }

@@ -7,16 +7,23 @@ package jc01_2020.shvaichuk.lesson10.task02;
  *
  */
 
+import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Application {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		// Объявить список
-		for (int i = 0; i < 20; i++) {
-			// Заполнить список
-		}
-	}
+		Set<Integer> set = new HashSet<>();
 
+		for (int i = 0; i < 20; i++) {
+			set.add(new Random().nextInt(100));
+		}
+
+		set.removeIf(n -> n > 50);
+
+		System.out.println(set);
+	}
 }
