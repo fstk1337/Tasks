@@ -56,15 +56,43 @@ public class MatrixMultiplication {
 		c = new int[rowsA][columnsB];
 
 		// Заполнить массивы А и В с помощью scanner.nextInt(). Тестовые данные заполняются построчно для каждого массива
-
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[0].length; j++) {
+                a[i][j] = scanner.nextInt();
+            }
+        }
+        for (int i = 0; i < b.length; i++) {
+            for (int j = 0; j < b[0].length; j++) {
+                b[i][j] = scanner.nextInt();
+            }
+        }
 		// Вывести в консоль матрицу А
-
+        printMatrix(a);
 		// Вывести в консоль матрицу В
-
+        printMatrix(b);
 		// Перемножить матрицы
-
+        c = productMatrixes(a, b);
 		// Вывести результирующую матрицу по одному значению через пробел (порядок вывода - построчно)
-
+        printMatrix(c);
 	}
 
+	private static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+        }
+    }
+
+    private static int[][] productMatrixes(int[][] matrixA, int[][] matrixB) {
+	    int[][] result = new int[matrixA.length][matrixB[0].length];
+        for (int i = 0; i < matrixA.length; i++) {
+            for (int j = 0; j < matrixB[0].length; j++) {
+                for (int k = 0; k < matrixB.length; k++) {
+                    result[i][j] += matrixA[i][k] * matrixB[k][j];
+                }
+            }
+        }
+	    return result;
+    }
 }

@@ -18,5 +18,26 @@ public class Comparision {
 		int firstSum = 0;
 		int secondSum = 0;
 
+		for (int i = 3; i < input.length(); i += 4) {
+		    int currentNumber = input.charAt(i) - 48;
+            if (currentNumber > 5) {
+                firstSum += currentNumber;
+            }
+        }
+
+		for (int i = 1; i < input.length(); i += 2) {
+		    int currentNumber = input.charAt(i) - 48;
+		    if (currentNumber < 5) {
+		        secondSum += currentNumber;
+            }
+        }
+
+		if (firstSum > secondSum) {
+            System.out.println(firstSum);
+        } else if (firstSum < secondSum) {
+            System.out.println(secondSum);
+        } else {
+            System.out.println("равны");
+        }
 	}
 }
