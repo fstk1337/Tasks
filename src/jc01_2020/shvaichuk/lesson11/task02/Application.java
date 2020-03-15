@@ -22,7 +22,17 @@ import java.util.Random;
 public class Application {
 
 	public static void main(String[] args) throws Exception {
-		invokeMethodWithException();
+		try {
+			invokeMethodWithException();
+		} catch (NullPointerException e) {
+			System.out.println("NPE");
+		} catch (ArithmeticException | NumberFormatException e) {
+			System.out.println("ArithmeticException");
+		} catch (FileNotFoundException e) {
+			System.out.println("File is absent");
+		}
+
+		System.out.println("Program finished successfully");
 	}
 
 	private static void invokeMethodWithException() throws NullPointerException, ArithmeticException, FileNotFoundException, URISyntaxException {
