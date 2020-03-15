@@ -13,8 +13,56 @@ package jc01_2020.shvaichuk.lesson12;
  *
  */
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class Task4 {
 	public static void main(String[] args) {
+		List<Car> cars = new ArrayList<>();
+		for (int i = 0; i < 50; i++) {
+			int rnd = new Random().nextInt(8);
+			cars.add(new Car(Color.getColor(rnd)));
+		}
 
+		boolean carExists = cars.stream()
+				.peek(Car::setColorText)	//1
+				.limit(10)					//2
+				.filter(car -> car.getColor().equals(Color.getColor(Color.values().length - 1))) //3
+				.anyMatch(car -> car.getColor().equals(Color.getColor(Color.values().length - 1)));
+
+		System.out.println(carExists); //4
+	}
+
+	static class Car {
+		private Color color;
+		private String colorText;
+
+		public Car(Color color) {
+			this.color = color;
+		}
+
+		public Color getColor() {
+			return color;
+		}
+
+		public void setColorText() {
+			colorText = color.toString();
+		}
+	}
+
+	enum Color {
+		WHITE,
+		RED,
+		ORANGE,
+		YELLOW,
+		GREEN,
+		BLUE,
+		VIOLET,
+		BLACK;
+
+		public static Color getColor(int number) {
+			return Color.values()[number];
+		}
 	}
 }
