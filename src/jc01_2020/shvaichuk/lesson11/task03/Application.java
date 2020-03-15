@@ -15,11 +15,21 @@ import java.util.Random;
 public class Application {
 
 	public static void main(String[] args) {
-
+		try {
+			invoke();
+		} catch (RuntimeException e) {
+			System.out.println("Произошло непроверяемое исключение");
+		} catch (Exception e) {
+			System.out.println("Произошло проверяемое исключение");
+		}
 	}
 
 	public static void invoke() throws Exception {
-		invokeMethodWithException();
+		try {
+			invokeMethodWithException();
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 	private static void invokeMethodWithException() throws NullPointerException, ArithmeticException, FileNotFoundException, URISyntaxException {
