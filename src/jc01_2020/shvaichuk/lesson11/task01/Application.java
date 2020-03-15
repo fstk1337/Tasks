@@ -14,7 +14,11 @@ import java.util.Random;
 public class Application {
 
 	public static void main(String[] args) throws Exception {
-		invokeMethodWithException();
+		try {
+			invokeMethodWithException();
+		} catch (NullPointerException | FileNotFoundException e) {
+			System.out.println("Подавлено");
+		}
 	}
 
 	private static void invokeMethodWithException() throws NullPointerException, ArithmeticException, FileNotFoundException, URISyntaxException {
