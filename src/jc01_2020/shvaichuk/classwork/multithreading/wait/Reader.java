@@ -1,7 +1,5 @@
 package jc01_2020.shvaichuk.classwork.multithreading.wait;
 
-import jc01_2020.classwork.multithreading.wait.Calculator;
-
 public class Reader extends Thread {
     final Calculator c;
     public Reader(Calculator calc) { c = calc;  }

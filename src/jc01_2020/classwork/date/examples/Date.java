@@ -3,7 +3,7 @@ package jc01_2020.classwork.date.examples;
 import java.time.LocalDate;
 
 public class Date {
-    LocalDate now;
+    public LocalDate now;
     public Date() {
         now = LocalDate.now();
     }
