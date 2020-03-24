@@ -28,7 +28,6 @@ public class Task4 {
 		boolean carExists = cars.stream()
 				.peek(Car::setColorText)	//1
 				.limit(10)					//2
-				.filter(car -> car.getColor().equals(Color.getColor(Color.values().length - 1))) //3
 				.anyMatch(car -> car.getColor().equals(Color.getColor(Color.values().length - 1)));
 
 		System.out.println(carExists); //4
