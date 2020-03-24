@@ -35,10 +35,6 @@ public class Task5 {
 			return livesRemain;
 		}
 
-		public void setLivesRemain(int livesRemain) {
-			this.livesRemain = livesRemain;
-		}
-
 		@Override
 		public Cat hasMoreLives(Cat anotherCat) {
 			if (anotherCat.getLivesRemain() > getLivesRemain()) {
