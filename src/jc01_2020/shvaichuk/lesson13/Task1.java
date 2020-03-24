@@ -19,7 +19,7 @@ public class Task1 {
 		System.out.println("дата1: " + date1);
 		System.out.println("дата2: " + date2);
 
-		String comparingResult = new String();
+		String comparingResult;
 
 		if (date1.isBefore(date2)) {
 			comparingResult = " меньше ";
