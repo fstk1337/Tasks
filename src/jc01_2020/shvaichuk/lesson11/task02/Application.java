@@ -30,9 +30,9 @@ public class Application {
 			System.out.println("ArithmeticException");
 		} catch (FileNotFoundException e) {
 			System.out.println("File is absent");
+		} finally {
+			System.out.println("Program finished successfully");
 		}
-
-		System.out.println("Program finished successfully");
 	}
 
 	private static void invokeMethodWithException() throws NullPointerException, ArithmeticException, FileNotFoundException, URISyntaxException {
