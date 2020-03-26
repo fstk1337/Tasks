@@ -27,3 +27,4 @@ hs_err_pid*
 *.iml
 *.xml
 /out/production/Tasks/META-INF/Tasks.kotlin_module
+/out/production/Tasks/jc01_2020/shvaichuk/lesson14/resource/lesson14-01.txt
