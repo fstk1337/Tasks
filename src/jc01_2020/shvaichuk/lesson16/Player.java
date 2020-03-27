@@ -1,10 +1,15 @@
 package jc01_2020.shvaichuk.lesson16;
 
-public class Player implements Runnable {
+import com.sun.source.tree.BreakTree;
 
-    @Override
-    public void run() {
+public class Player {
+    private String name;
 
+    public Player(String name) {
+        this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
 }
