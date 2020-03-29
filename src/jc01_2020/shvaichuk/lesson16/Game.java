@@ -10,11 +10,11 @@ public class Game extends Thread {
 	private boolean gameInProgress;
 	private GameResult gameResult;
 
-	public Game(Player player1, Player player2) {
+	public Game() {
 		GameTable table = new GameTable();
-		this.player1 = player1;
-		this.player2 = player2;
-		System.out.println(String.format("%s and %s joined the Game.", player1.getName(), player2.getName()));
+		player1 = new Player("Calvin", table);
+		player2 = new Player("Andrew", table);
+		System.out.println(String.format("%s and %s joined the Game.", player1.getPlayerName(), player2.getPlayerName()));
 	}
 
 	public Player chooseFirstToMove() {
@@ -25,9 +25,18 @@ public class Game extends Thread {
 
 	@Override
 	public void run() {
+		firstToMove = chooseFirstToMove();
+		System.out.println(String.format("%s is first to move.", firstToMove.getPlayerName()));
 		gameInProgress = true;
 		System.out.println("The Game started.");
-		firstToMove = chooseFirstToMove();
-		System.out.println(String.format("%s is first to move.", firstToMove.getName()));
+		player1.start();
+		player2.start();
+		while (gameInProgress) {
+			try {
+				Thread.currentThread().join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

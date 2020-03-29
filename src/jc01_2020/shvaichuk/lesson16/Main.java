@@ -14,10 +14,7 @@ import java.util.concurrent.Executors;
 public class Main {
 
     public static void main(String[] args) {
-        Player player1 = new Player("Vitaly");
-        Player player2 = new Player("Valery");
-
-        Game game = new Game(player1, player2);
+        Game game = new Game();
         game.start();
 
 

@@ -1,15 +1,34 @@
 package jc01_2020.shvaichuk.lesson16;
 
-import com.sun.source.tree.BreakTree;
+public class Player extends Thread implements Playing {
+    private String playerName;
+    private GameTable gameTable;
 
-public class Player {
-    private String name;
-
-    public Player(String name) {
-        this.name = name;
+    public Player(String name, GameTable gameTable) {
+        playerName = name;
+        this.gameTable = gameTable;
     }
 
-    public String getName() {
-        return name;
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            if (gameTable.hasEmptyFields()) {
+                makeAMove();
+                try {
+                    Thread.currentThread().join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } else break;
+        }
+    }
+
+    @Override
+    public void makeAMove() {
+        System.out.println(String.format("%s is making a move", this.getPlayerName()));
     }
 }

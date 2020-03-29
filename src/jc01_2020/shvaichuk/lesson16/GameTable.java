@@ -3,6 +3,11 @@ package jc01_2020.shvaichuk.lesson16;
 public class GameTable {
 	private Field[][] table = new Field[3][3];
 	private FieldType nextFieldType;
+	private boolean hasEmptyFields = true;
+
+	public boolean hasEmptyFields() {
+		return hasEmptyFields;
+	}
 
 	public GameTable() {
 		for (int i = 0; i < table.length; i++) {
