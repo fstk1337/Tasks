@@ -12,4 +12,12 @@ public class Parking implements Serializable {
 		this.capacity = capacity;
 		this.hasEmptyParkingPlaces = hasEmptyParkingPlaces;
 	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
 }
