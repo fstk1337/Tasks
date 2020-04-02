@@ -20,8 +20,11 @@ package jc01_2020.shvaichuk.test02;
  *
  */
 
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
+import java.io.*;
+import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Main {
@@ -31,8 +34,33 @@ public class Main {
     public static final String PATH_TO = "src/jc01_2020/shvaichuk/test02/resource/result.txt";
 
     public static void main(String[] args) {
-        Employee employee = getEmployee();
-        //employee.setDepartment(Department.getDepartment(employee));
+        Employee employee = Helper.getEmployee(); //1
+        employee.setDepartment(Department.getDepartment(employee)); //2
+        employee.setEndDate(LocalDate.now()); //3
+        LocalDate start = employee.getStartDate();
+        LocalDate end = employee.getEndDate();
+        int days = 0;
+        while (!start.isEqual(end)) {
+            start = start.plusDays(1);
+            days++;
+        }
+        employee.setWorkPeriod(days); //4
+
+        List<Reward> rewards = employee.getRewards().stream()
+                .peek(r -> r.setName(String.format("%s - %s", r.getDate().toString(), r.getName())))
+                .sorted(Comparator.comparing(Reward::getDate))
+                .collect(Collectors.toList());
+
+        employee.setRewards(rewards);
+
+        try {
+            FileWriter writer = new FileWriter(PATH_TO);
+            writer.write(employee.print());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
 
     }
 
@@ -42,6 +70,7 @@ public class Main {
             result = (Employee) ois.readObject();
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException();
         }
         return result;
     }

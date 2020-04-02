@@ -1,8 +1,6 @@
 package jc01_2020.shvaichuk.test02;
 
-import jc01_2020.test02.Department;
-import jc01_2020.test02.Employee;
-import jc01_2020.test02.Reward;
+
 
 import java.io.Serializable;
 import java.time.LocalDate;
