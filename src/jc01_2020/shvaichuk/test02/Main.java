@@ -20,20 +20,30 @@ package jc01_2020.shvaichuk.test02;
  *
  */
 
-import jc01_2020.test02.Employee;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
 
 public class Main {
 
     // Изменить на реальный путь после копирования файлов
-    public static final String PATH_FROM = "src/jc01_2020/test02/resource/secret.dat";
-    public static final String PATH_TO = "src/jc01_2020/test02/resource/result.txt";
+    public static final String PATH_FROM = "src/jc01_2020/shvaichuk/test02/resource/secret.dat";
+    public static final String PATH_TO = "src/jc01_2020/shvaichuk/test02/resource/result.txt";
 
     public static void main(String[] args) {
         Employee employee = getEmployee();
+        //employee.setDepartment(Department.getDepartment(employee));
+
     }
 
     public static Employee getEmployee() {
-        return null;
+        Employee result = null;
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(PATH_FROM))) {
+            result = (Employee) ois.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 }

@@ -20,9 +20,9 @@ public enum  Department {
         this.value = value;
     }
 
-    public static Department getDepartment(/*тут можно что-нибудь написать*/) {
-        /*тут можно что-нибудь написать*/
-        return null;
+    public static Department getDepartment(Employee employee) {
+        if (employee instanceof Водитель) return Department.A3;
+        if (employee instanceof Доктор) return Department.A2;
+        return Department.A1;
     }
-
 }
